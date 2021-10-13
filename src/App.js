@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './Header'
+import Calender from './Calender'
+import './App.css'
 
 function App() {
+  const date = new Date()
+  const year = date.getFullYear()
+  const month = date.getMonth()+1 //月は０始まりのため+1
+  
+
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <div id="header">
+        <Header year={year} month={month} />
+      </div>
+
+      <div id="month-select-button">
+        <button id="back">◀</button>
+        <button id="next">▶</button>
+      </div>
+
+      <div id="calender">
+        <Calender year={year} month={month} />
+      </div>
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
